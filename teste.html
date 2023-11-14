@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap'>
+  <meta charset='utf-8'>
+  <title>Retângulo com Animação e Ícone Estilizado em CSS</title>
+  <style>
+    .retangulo {
+      position: fixed;
+      width: 500px;
+      height: 1200px;
+      /* Reduzi a altura para permitir a margem no final */
+      background-color: #21C3B6;
+      animation: aparecer 0.2s forwards;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      /* Distribui igualmente o espaço vertical entre os retângulos menores */
+    }
+
+    .retangulo-pequeno {
+      position: relative;
+      width: 370px;
+      /* Ajusta a largura em relação ao contêiner pai */
+      height: 140px;
+      /* Ajusta a altura em relação ao contêiner pai */
+      margin-left: -60px;
+      background-color: #ffffffa2;
+      border-radius: 10px;
+    }
+
+    .retangulo-Empresa {
+      position: relative;
+      left: 17%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      width: 130px;
+      height: 140px;
+      margin-left: -60px;
+      background-color: #dcdcdce3;
+      border-top-left-radius: 10px;
+      border-end-start-radius: 10px;
+      box-shadow: inset 0 0 5px 5px #ffefef;
+    }
+
+
+      
+
+    @keyframes aparecer {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 0.8;
+      }
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+    }
+
+    .icone-x {
+      position: absolute;
+      top: 17px;
+      right: 17px;
+      width: 70px;
+      height: 70px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid transparent;
+      border-radius: 50%;
+      transition: transform 0.3s ease-in-out;
+      z-index: 1;
+    }
+
+    .icone-x:hover {
+      transform: rotate(180deg);
+    }
+
+    .icone-x:before,
+    .icone-x:after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 15px;
+      background-color: #fff;
+      transform-origin: center;
+      transition: background-color 0.3s;
+    }
+
+    .icone-x:before {
+      transform: rotate(45deg);
+    }
+
+    .icone-x:after {
+      transform: rotate(-45deg);
+    }
+
+    .icone-x:hover:before,
+    .icone-x:hover:after {
+      background-color: #FF6347;
+    }
+
+    .circulo-branco {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 45px;
+      height: 45px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .marcador {
+      position: absolute;
+      width: 95px;
+      height: 30px;
+      background-color: #dcdcdce3;
+      border-radius: 30px;
+      margin-left: -40px;
+      z-index: 2;
+      box-shadow: inset 0 0 5px 5px #ffefef;
+    }
+
+    .marcadorEmpresa {
+      position: absolute;
+      top: 30px;
+      left: 280px;
+      width: 150px;
+      height: 30px;
+      background-color: #dcdcdce3;
+      border-radius: 30px;
+      margin-left: -40px;
+      z-index: 2;
+      box-shadow: inset 0 0 5px 5px #ffefef;
+    }
+
+    .marcadorEmpresa .textoEmpresa {
+      text-align: center;
+      vertical-align: middle;
+      line-height: 30px;
+    }
+
+    .texto {
+      text-align: center;
+      margin-top: 0px;
+      font-family: 'monospace';
+      font-size: 23px;
+    }
+
+    .textoEmpresa {
+      margin-top: 15px;
+      margin-left: 10px;
+      font-family: 'Roboto';
+      font-size: 28px;
+      font-weight: bold;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div style='margin-left: 60px;' class='retangulo'>
+
+    <div class='marcadorEmpresa' style='top: 30px; left: 280px;'>
+      <p class='texto'>Marca</p>
+    </div>
+    <div class='marcadorEmpresa' style='top: 70px; left: 280px;'>
+      <p class='texto'>Unidade</p>
+    </div>
+    <div class='marcadorEmpresa' style='top: 110px; left: 280px;'>
+      <p class='texto'>Filial</p>
+    </div>
+
+
+    <div class='marcador' style='top: 210px; left: -5px;'>
+      <p class='texto'>Ano</p>
+    </div>
+    <div class='marcador' style='top: 245px; left: -5px;'>
+      <p class='texto'>Trimestre</p>
+    </div>
+    <div class='marcador' style='top: 280px; left: -5px;'>
+      <p class='texto'>Mês</p>
+    </div>
+
+    <div class='circulo-branco'></div>
+    <div class='icone-x'></div>
+    <!-- Adicionando os cinco retângulos pequenos dentro do retângulo maior -->
+
+    <div class='retangulo-pequeno'>
+      <div style='margin-left: 0px;' class='retangulo-Empresa'>
+        <p class='textoEmpresa'> Tipo<br />de<br />Empresa</p>
+      </div>
+
+    </div>
+    <div class='retangulo-pequeno'></div>
+    <div class='retangulo-pequeno'></div>
+    <div class='retangulo-pequeno'></div>
+    <div class='retangulo-pequeno'></div>
+    <div class='retangulo-pequeno'></div>
+    <div class='retangulo-pequeno'></div>
+  </div>
+</body>
+
+</html>
